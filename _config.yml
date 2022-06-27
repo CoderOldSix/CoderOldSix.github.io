@@ -21,14 +21,14 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: CoderOldSix                      # the main title
+title: CoderOldSix                          # the main title
 
-tagline: Knowledge is infinite.         # it will display as the sub-title
+tagline: Knowddshakjdsah   # it will display as the sub-title
 
-description: >-                         # used by seo meta and the atom feed
+description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
 
-# fill in the protocol & hostname for your site, e.g., 'https://username.github.io' 
+# fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://CoderOldSix.github.io'
 
 github:
@@ -80,10 +80,10 @@ theme_mode:   # [light|dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn: 'https://github.com'
+img_cdn: 'https://raw.githubusercontent.com/CoderOldSix/WebsiteImages/main'
 
 # the avatar on sidebar, support local or CORS resources
-avatar: '/CoderOldSix.png'
+avatar: '/Blog/Avatars/WebsiteAvatar.jpg'
 
 # boolean type, the global switch for ToC in posts.
 toc: true
