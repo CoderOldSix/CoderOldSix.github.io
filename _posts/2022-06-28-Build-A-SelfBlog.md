@@ -11,7 +11,7 @@ tags: [github pages, custom domain]
 首先，创建自己的githubpages网站比较简单，所以在这里不做太多赘述，附上讲的比较好的链接：
 
 * github官方介绍：[GitHub Pages 文档 - GitHub Docs](https://docs.github.com/cn/pages)
-* 跟我一样的风格：[Getting Started | CoderOldSix (unrealdev.cn)](https://unrealdev.cn/posts/getting-started/)
+* 跟我一样的风格：[Getting Started](https://unrealdev.cn/posts/getting-started/)
 * 普通一般风格：[零基础-通过Github Pages搭建个人博客_bilibili](https://www.bilibili.com/video/BV1Xh411b7wh?spm_id_from=333.880.my_history.page.click&vd_source=a25291d34476f766787af070326a91f5)
 
 之所以把该网站的风格单独列出来，是因为该风格是因为该博客的风格使用了插件，而github为了安全考虑，限制了我们使用插件去生成其他页面文件。因此我们可以使用githubActions去构建站点。
@@ -72,7 +72,7 @@ tags: [github pages, custom domain]
   * 自定义静态资源
     * 略，可不修改
 
-* 本地运行
+* 本地运行：
 
   * ```console
     $bundle exec jekyll s
@@ -80,13 +80,13 @@ tags: [github pages, custom domain]
 
   * 浏览器打开命令行上显示的地址，一般为：127.0.0.1:4000,查看是否正常运行，如果不行查找上述是否严格按照上述步骤实现；
 
-* 部署
+* 部署：
 
   * 配置GitHub Actions 
 
     * 检查目标文件【.github/workflows/pages-deploy.yml】是否存在，如果没有则创建一个，并拷贝[SampleFile](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/.github/workflows/pages-deploy.yml.hook) 文件里的内容，注意检查branch的名称，需要跟自己的名称一致，该文件默认是master，其次需要将rubyversion更改为自己安装的ruby的version（上述的ruby安装选项已经告知如何查找ruby的ersion），因为安装的是dev版本的，所以，将它改为缩减版的版本即可，如我的：ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x64-mingw-ucrt]，就直接更改为3.1.2。
 
-    * 确保tools/deploy.sh文件存在，否则从[原仓库)](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/tools/deploy.sh)上复制该文件；
+    * 确保tools/deploy.sh文件存在，否则从[原仓库](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/tools/deploy.sh)上复制该文件；
 
     * 如果你的电脑不是linux系统，运行以下命令：
 
@@ -110,9 +110,14 @@ tags: [github pages, custom domain]
 
       
 
-* 自定义域名
+* 自定义域名：
 
   * 接下来，如果你想添加自定义域名，明天再写吧，已经凌晨两点了。哈哈哈！
+
+* 快速刷新：
+
+  * 
+
 
 ​	
 
