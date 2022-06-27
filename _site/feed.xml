@@ -1,1 +1,23 @@
-<feed xmlns="http://www.w3.org/2005/Atom"> <id>https://coderoldsix.github.io/</id><title>CoderOldSix</title><subtitle>A minimal, responsive, and powerful Jekyll theme for presenting professional writing.</subtitle> <updated>2022-06-27T21:50:36+08:00</updated> <author> <name>Jack</name> <uri>https://coderoldsix.github.io/</uri> </author><link rel="self" type="application/atom+xml" href="https://coderoldsix.github.io/feed.xml"/><link rel="alternate" type="text/html" hreflang="en" href="https://coderoldsix.github.io/"/> <generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator> <rights> © 2022 Jack </rights> <icon>/assets/img/favicons/favicon.ico</icon> <logo>/assets/img/favicons/favicon-96x96.png</logo> </feed>
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://0.0.0.0:4000/</id>
+  <title>CoderOldSix</title>
+  <subtitle>A minimal, responsive, and powerful Jekyll theme for presenting professional writing.</subtitle>
+  <updated>2022-06-27T22:02:19+08:00</updated>
+  <author>
+    <name>Jack</name>
+    <uri>http://0.0.0.0:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://0.0.0.0:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://0.0.0.0:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator>
+  <rights> © 2022 Jack </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+</feed>
+
+
