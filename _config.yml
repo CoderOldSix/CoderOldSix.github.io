@@ -23,7 +23,7 @@ timezone: Asia/Shanghai
 
 title: CoderOldSix                          # the main title
 
-tagline: Knowddshakjdsah   # it will display as the sub-title
+tagline: Knowledge is infinite.   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
