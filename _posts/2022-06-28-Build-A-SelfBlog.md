@@ -121,3 +121,8 @@ tags: [github pages, custom domain]
     * 经过上述操作，登录到 username.github.io 仓库，去看提交以后的编译操作，看是否编译成功，编译成功以后，就可以尝试用：yourusername.github.io来进行登陆了；
 
     * 注意：在做下面的步骤之前最好确认username.github.io 网址可以正常访问；
+
+
+  * 快速刷新：
+    * 可以尝试使用google浏览器的访客功能来访问网址，应该不到一分钟就可以更新<username.github.io>和<自定义域名>之间的关联；
+
