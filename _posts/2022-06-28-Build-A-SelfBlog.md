@@ -1,12 +1,19 @@
 ---
 title: 如何搭建自己的博客网站,并关联自定义域名（githubpages）
 author: OldSix
-date: 2021-01-03 18:32:00 -0500
+date: 2022-06-27 18:32:00 -0500
 categories: [Blogging, Tutorial]
 tags: [github pages, custom domain]
 ---
 
 本文主要概述，如何搭建自己的博客网站，并关联到自定义域名上。如何使用该主题，因为该主题比较特殊，因此，中间搭建过程可能比较麻烦，踩了几个坑，因此，在这里做一篇文章记录一下。
+
+本文除了介绍有以下几个方面
+
+* <u>搭建username.github.io网站；</u>
+* <u>关联自定义域名；</u>
+  * 快速刷新自定义域名和github.io的关联关系
+* <u>添加评论功能；</u>
 
 首先，创建自己的githubpages网站比较简单，所以在这里不做太多赘述，附上讲的比较好的链接：
 
@@ -88,10 +95,10 @@ tags: [github pages, custom domain]
 
     * 确保tools/deploy.sh文件存在，否则从[原仓库](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/tools/deploy.sh)上复制该文件；
 
-    * 如果你的电脑不是linux系统，运行以下命令：
+    * 如果你使用的<u>**本地电脑**</u>不是linux系统，运行以下命令：
 
       * ```
-        $bundle lock --add-platform x86_64-linux
+        $ bundle lock --add-platform x86_64-linux
         ```
 
       * ```
@@ -108,20 +115,68 @@ tags: [github pages, custom domain]
 
     * 经过上述操作，登录到 username.github.io 仓库，去看提交以后的编译操作，看是否编译成功，编译成功以后，就可以尝试用：yourusername.github.io来进行登陆了；
 
+    * 注意：在做下面的步骤之前最好确认username.github.io 网址可以正常访问；
+    
       
 
 * 自定义域名：
 
-  * 接下来，如果你想添加自定义域名，明天再写吧，已经凌晨两点了。哈哈哈！
+  * 首先，你要自己申请域名[阿里云](https://wanwang.aliyun.com/?spm=5176.1830550.0.0.5b7c5f0fXlKyZu)为例；
+  * 申请完成以后，可能需要实名认证；
+  * 然后做DNS解析，[DNS解析](https://www.bilibili.com/video/BV1yA41187ok?spm_id_from=333.880.my_history.page.click&vd_source=a25291d34476f766787af070326a91f5)；
+    * 因为上述连接中是二级域名，因此，它上面提到的填写“blog”的地方可以不写内容；
+    * 需要注意的是，AAAA记录也是可以写的，你的解析写多了，并不影响正常的使用；
+  * 上述完成以后，就可以在自己的github.io仓库的setings->pages界面设置外部链接了，如果你的DNS解析填写没有问题，可以直接将自己的域名写入，exp：unrealdev.cn;
+  * 等上述完成以后，并且解析无误，外部链接就可以正常访问了，当然也可能出现问题，注意看作者踩过的坑；
 
 * 快速刷新：
 
-  * 
+  * 可以尝试使用google浏览器的访客功能来访问网址，应该不到一分钟就可以更新<username.github.io>和<自定义域名>之间的关联；
+
+* 评论功能：
+
+  * 因为我用的是giscus方式，因此就用giscus来做介绍；
+
+  * 到[giscus](https://github.com/apps/giscus)将该app安装到自己的github.io仓库（当然你也可以不用github.io仓库，但是会影响到后续操作，这里只介绍github.io方式）；
+
+  * 打开github.io仓库的discussion功能，在项目的setting当中；
+
+  * 然后一步一步的按照[giscus](https://github.com/apps/giscus)中【configuration】中提到的去做，需要选择的地方可以选择默认；
+
+  * 完成上述操作，可以得到repid，categoryid等参数，用于后续关联网站使用；
+
+  * 找到_config.yml文件中的 comments部分，将变量设置为上面生成的内容，active：后填写 giscus，没有引号，注意在配置剩余其他变量的时候，需要单引号包裹，即使是rep部分，注释使用的是<username>/<rep>，这里也是需要用单引号包裹，如：'CoderOldSix/CoderOldSix.github.io'；
+
+  * 修改上述完成以后，利用git提交到远端库；
+
+  * 等待github编译完成，然后用访客方式打开自己的域名；
+
+    
+
+* 踩过的坑：
+
+  * 下载官方Release版本，不然会出问题；
+  * 解压之后别忘了运行``bash tools/init.sh``；
+  * 如果你是本地的别忘了运行 ``bundle lock --add-platform x86_64-linux``命令；
+  * 添加评论功能的时候，尖括号问题，categoryid获取问题；
+
+* 上述处理方式的优缺点：
+
+  * 国内用户不好访问，因此头像图片等尽量放在国内服务器（如果你想用github的方式，图片还有更好的处理方式，这里不再赘述）；
+  * 有的浏览器不能打开夜间模式；
+  * 不带视频播放功能；
+  * gif功能没做测试；
 
 
-​	
+Good Job！
 
 
+
+
+
+"Time after time have given me new courage to face life cheerfully, have been Kindness, *Beauty, and Truth.* "
+
+​																																													---Albert Einstein
 
 
 
