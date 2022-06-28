@@ -139,17 +139,5 @@ tags: [github pages, custom domain]
   * 评论功能：
 
     * 因为我用的是giscus方式，因此就用giscus来做介绍；
-
     * 到[giscus](https://github.com/apps/giscus)将该app安装到自己的github.io仓库（当然你也可以不用github.io仓库，但是会影响到后续操作，这里只介绍github.io方式）；
-
     * 打开github.io仓库的discussion功能，在项目的setting当中；
-
-    * 然后一步一步的按照[giscus](https://github.com/apps/giscus)中【configuration】中提到的去做，需要选择的地方可以选择默认；
-
-    * 完成上述操作，可以得到repid，categoryid等参数，用于后续关联网站使用；
-
-    * 找到_config.yml文件中的 comments部分，将变量设置为上面生成的内容，active：后填写 giscus，没有引号，注意在配置剩余其他变量的时候，需要单引号包裹，即使是rep部分，注释使用的是<username>/<rep>，这里也是需要用单引号包裹，如：'CoderOldSix/CoderOldSix.github.io'；
-
-    * 修改上述完成以后，利用git提交到远端库；
-
-    * 等待github编译完成，然后用访客方式打开自己的域名；
