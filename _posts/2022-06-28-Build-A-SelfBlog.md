@@ -125,3 +125,9 @@ tags: [github pages, custom domain]
   * 自定义域名：
 
     * 首先，你要自己申请域名[阿里云](https://wanwang.aliyun.com/?spm=5176.1830550.0.0.5b7c5f0fXlKyZu)为例；
+    * 申请完成以后，可能需要实名认证；
+    * 然后做DNS解析，[DNS解析](https://www.bilibili.com/video/BV1yA41187ok?spm_id_from=333.880.my_history.page.click&vd_source=a25291d34476f766787af070326a91f5)；
+      * 因为上述连接中是二级域名，因此，它上面提到的填写“blog”的地方可以不写内容；
+      * 需要注意的是，AAAA记录也是可以写的，你的解析写多了，并不影响正常的使用；
+    * 上述完成以后，就可以在自己的github.io仓库的setings->pages界面设置外部链接了，如果你的DNS解析填写没有问题，可以直接将自己的域名写入，exp：unrealdev.cn;
+    * 等上述完成以后，并且解析无误，外部链接就可以正常访问了，当然也可能出现问题，注意看作者踩过的坑；
