@@ -99,7 +99,7 @@ comments:
     issue_term:   # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: <CoderOldSix>/<CoderOldSix.github.io>      # <gh-username>/<repo>
+    repo: 'CoderOldSix/CoderOldSix.github.io'      # <gh-username>/<repo>
     repo_id: 'R_kgDOHkH7fw'
     category: 'BlogComment'
     category_id: 'DIC_kwDOHkH7f84CP7KM'
