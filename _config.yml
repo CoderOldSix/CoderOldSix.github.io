@@ -100,9 +100,9 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: <CoderOldSix>/<CoderOldSix.github.io>      # <gh-username>/<repo>
-    repo_id: R_kgDOHkH7fw
-    category: BlogComment
-    category_id: DIC_kwDOHkH7f84CP7KM
+    repo_id: 'R_kgDOHkH7fw'
+    category: 'BlogComment'
+    category_id: 'DIC_kwDOHkH7f84CP7KM'
     mapping:          # optional, default to 'pathname'
     input_position:   # optional, default to 'bottom'
     lang:             # optional, default to the value of `site.lang`
