@@ -1,6 +1,6 @@
 ---
-title: 如何搭建自己的博客网站,并关联自定义域名（githubpages）
-author: OldSix
+title: 如何搭建自己的博客网站,并关联自定义域名
+author: CoderOldSix
 date: 2022-06-27 18:32:00 -0500
 categories: [Blogging, Tutorial]
 tags: [github pages, custom domain]
@@ -174,7 +174,7 @@ Good Job！
 
 
 
-"Time after time have given me new courage to face life cheerfully, have been Kindness, *Beauty, and Truth.* "  ---Albert Einstein
+"Time after time have given me new courage to face life cheerfully, have been Kindness, *Beauty, and Truth.* "  ————Albert Einstein
 
 
 
