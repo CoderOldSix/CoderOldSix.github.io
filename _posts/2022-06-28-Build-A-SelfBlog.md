@@ -123,5 +123,5 @@ tags: [github pages, custom domain]
     * 注意：在做下面的步骤之前最好确认username.github.io 网址可以正常访问；
 
   * 快速刷新：
-    * 可以尝试使用google浏览器的访客功能来访问网址，应该不到一分钟就可以更新<username.github.io>和<自定义域名>之间的关联；
+    * 可以尝试使用google浏览器的访客功能来访问网址，应该不到一分钟就可以更新
 
