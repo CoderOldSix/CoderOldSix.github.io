@@ -174,9 +174,8 @@ Good Job！
 
 
 
-"Time after time have given me new courage to face life cheerfully, have been Kindness, *Beauty, and Truth.* "
-
-​																																													---Albert Einstein
+"Time after time have given me new courage to face life cheerfully, have been Kindness, *Beauty, and Truth.* "  
+                     																																													---Albert Einstein
 
 
 
