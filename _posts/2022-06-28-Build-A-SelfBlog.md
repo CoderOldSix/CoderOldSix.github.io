@@ -142,3 +142,25 @@ tags: [github pages, custom domain]
 
       * 等待github编译完成，然后用访客方式打开自己的域名；
 
+* 踩过的坑：
+
+  * 下载官方Release版本，不然会出问题；
+  * 解压之后别忘了运行``bash tools/init.sh``；
+  * 如果你是本地的别忘了运行 ``bundle lock --add-platform x86_64-linux``命令；
+  * 添加评论功能的时候，尖括号问题，categoryid获取问题；
+
+* 上述处理方式的优缺点：
+
+  * 国内用户不好访问，因此头像图片等尽量放在国内服务器（如果你想用github的方式，图片还有更好的处理方式，这里不再赘述）；
+  * 有的浏览器不能打开夜间模式；
+  * 不带视频播放功能；
+  * gif功能没做测试；
+
+
+Good Job！
+
+
+
+
+
+"Time after time have given me new courage to face life cheerfully, have been Kindness, *Beauty, and Truth.* "   -Albert Einstein
