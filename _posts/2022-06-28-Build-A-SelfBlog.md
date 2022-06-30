@@ -14,12 +14,8 @@ pin: true
 * <u>搭建username.github.io网站；</u>
 
   * 快速刷新自定义域名和github.io的关联关系
-
 * <u>添加评论功能；</u>
-
 * <u>关联自定义域名；</u>
-
-  
 
 首先，创建自己的githubpages网站比较简单，所以在这里不做太多赘述，附上讲的比较好的链接：
 
@@ -164,7 +160,7 @@ Good Job！
 
 ---
 
-​			"Time after time have given me new courage to face life cheerfully, have been Kindness, *Beauty, and Truth.* "                 ---Albert Einstein
+​			"Time after time have given me new courage to face life cheerfully, have been Kindness, *Beauty, and Truth.* "   ---Albert Einstein
 
 ---
 
