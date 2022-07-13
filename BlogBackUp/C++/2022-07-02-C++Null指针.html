@@ -1,0 +1,58 @@
+<h1 id="c-null指针">C++ Null指针</h1>
+
+<p>在变量声明的时候，如果没有确切的地址可以赋值，为指针变量赋一个 NULL 值是一个良好的编程习惯。赋为 NULL 值的指针被称为<strong>空</strong>指针。</p>
+
+<p>NULL 指针是一个定义在标准库中的值为零的常量。请看下面的程序：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="kt">int</span>  <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"ptr 的值是 "</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span> <span class="p">;</span>
+ 
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Result:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">ptr</span> <span class="err">的值是</span> <span class="mi">0</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>在大多数的操作系统上，程序不允许访问地址为 0 的内存，因为该内存是操作系统保留的。然而，内存地址 0 有特别重要的意义，它表明该指针不指向一个可访问的内存位置。但按照惯例，如果指针包含空值（零值），则假定它不指向任何东西。</p>
+
+<p>如需检查一个空指针，您可以使用 if 语句，如下所示：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="k">if</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span>     <span class="cm">/* 如果 ptr 非空，则完成 */</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ptr</span><span class="p">)</span>    <span class="cm">/* 如果 ptr 为空，则完成 */</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>因此，如果所有未使用的指针都被赋予空值，同时避免使用空指针，就可以防止误用一个未初始化的指针。很多时候，未初始化的变量存有一些垃圾值，导致程序难以调试。</p>
+
+<p>下一篇：[C++ 指针的算术运算]</p>
+
+<hr />
+
+<p>​			“Time after time have given me new courage to face life cheerfully, have been Kindness, <em>Beauty, and Truth.</em> “   —Albert Einstein</p>
+
+<hr />
+

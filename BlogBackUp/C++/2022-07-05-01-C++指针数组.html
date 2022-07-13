@@ -1,0 +1,173 @@
+<p>在我们讲解指针数组的概念之前，先让我们来看一个实例，它用到了一个由 3 个整数组成的数组：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">MAX</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="kt">int</span>  <span class="n">var</span><span class="p">[</span><span class="n">MAX</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">};</span>
+ 
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Value of var["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"] = "</span><span class="p">;</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">var</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="n">Value</span> <span class="n">of</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">Value</span> <span class="n">of</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">Value</span> <span class="n">of</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>可能有一种情况，我们想要让数组存储指向 int 或 char 或其他数据类型的指针。下面是一个指向整数的指针数组的声明：</strong></p>
+
+<pre><code class="language-C++">int *ptr[MAX];
+</code></pre>
+
+<p>在这里，把 <strong>ptr</strong> 声明为一个数组，由 MAX 个整数指针组成。因此，ptr 中的每个元素，都是一个指向 int 值的指针。下面的实例用到了三个整数，它们将存储在一个指针数组中，如下所示：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">MAX</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="kt">int</span>  <span class="n">var</span><span class="p">[</span><span class="n">MAX</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">};</span>
+   <span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
+ 
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">var</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="c1">// 赋值为整数的地址</span>
+   <span class="p">}</span>
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Value of var["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"] = "</span><span class="p">;</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="n">Value</span> <span class="n">of</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">Value</span> <span class="n">of</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">Value</span> <span class="n">of</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>您也可以用一个指向字符的指针数组来存储一个字符串列表，如下：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">MAX</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+ <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">names</span><span class="p">[</span><span class="n">MAX</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                   <span class="s">"Zara Ali"</span><span class="p">,</span>
+                   <span class="s">"Hina Ali"</span><span class="p">,</span>
+                   <span class="s">"Nuha Ali"</span><span class="p">,</span>
+                   <span class="s">"Sara Ali"</span><span class="p">,</span>
+   <span class="p">};</span>
+ 
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Value of names["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"] = "</span><span class="p">;</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="n">Value</span> <span class="n">of</span> <span class="n">names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Zara</span> <span class="n">Ali</span>
+<span class="n">Value</span> <span class="n">of</span> <span class="n">names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Hina</span> <span class="n">Ali</span>
+<span class="n">Value</span> <span class="n">of</span> <span class="n">names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">Nuha</span> <span class="n">Ali</span>
+<span class="n">Value</span> <span class="n">of</span> <span class="n">names</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">Sara</span> <span class="n">Ali</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>下一篇：[【C++】指向指针的指针]</p>
+
+<hr />
+
+<p>​			“Time after time have given me new courage to face life cheerfully, have been Kindness, <em>Beauty, and Truth.</em> “   —Albert Einstein</p>
+
+<hr />
+

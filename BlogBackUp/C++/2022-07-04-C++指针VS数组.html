@@ -1,0 +1,122 @@
+<p>指针和数组是密切相关的。事实上，指针和数组在很多情况下是可以互换的。例如，一个指向数组开头的指针，可以通过使用指针的算术运算或数组索引来访问数组。请看下面的程序：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">MAX</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="kt">int</span>  <span class="n">var</span><span class="p">[</span><span class="n">MAX</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">};</span>
+   <span class="kt">int</span>  <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+ 
+   <span class="c1">// 指针中的数组地址</span>
+   <span class="n">ptr</span> <span class="o">=</span> <span class="n">var</span><span class="p">;</span>
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"var["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"]的内存地址为 "</span><span class="p">;</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+ 
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"var["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"] 的值为 "</span><span class="p">;</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+ 
+      <span class="c1">// 移动到下一个位置</span>
+      <span class="n">ptr</span><span class="o">++</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="err">的内存地址为</span> <span class="mh">0x7fff59707adc</span>
+<span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="err">的值为</span> <span class="mi">10</span>
+<span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="err">的内存地址为</span> <span class="mh">0x7fff59707ae0</span>
+<span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="err">的值为</span> <span class="mi">100</span>
+<span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="err">的内存地址为</span> <span class="mh">0x7fff59707ae4</span>
+<span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="err">的值为</span> <span class="mi">200</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>然而，指针和数组并不是完全互换的。例如，请看下面的程序：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span> 
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">MAX</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+ 
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+<span class="p">{</span>
+   <span class="kt">int</span>  <span class="n">var</span><span class="p">[</span><span class="n">MAX</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">};</span>
+ 
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="o">*</span><span class="n">var</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>    <span class="c1">// 这是正确的语法</span>
+      <span class="n">var</span><span class="o">++</span><span class="p">;</span>       <span class="c1">// 这是不正确的</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>把指针运算符 * 应用到 var 上是完全可以的，但修改 var 的值是非法的。这是因为 var 是一个指向数组开头的常量，不能作为左值。</p>
+
+<p>由于一个数组名对应一个指针常量，只要不改变数组的值，仍然可以用指针形式的表达式。例如，下面是一个有效的语句，把 var[2] 赋值为 500：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="o">*</span><span class="p">(</span><span class="n">var</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>下一篇：[【C++】指针VS数组]</p>
+
+<hr />
+
+<p>​			“Time after time have given me new courage to face life cheerfully, have been Kindness, <em>Beauty, and Truth.</em> “   —Albert Einstein</p>
+
+<hr />
+

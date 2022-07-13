@@ -1,0 +1,106 @@
+<p>C++ 允许在 <strong>char、int 和 double</strong> 数据类型前<strong>放置修饰符</strong>。修饰符用于改变基本类型的含义，所以它更能满足各种情境的需求。</p>
+
+<p>下面列出了数据类型修饰符：</p>
+
+<ul>
+  <li>signed</li>
+  <li>unsigned</li>
+  <li>long</li>
+  <li>short</li>
+</ul>
+
+<p>修饰符 <strong>signed、unsigned、long 和 short</strong> 可应用于整型，<strong>signed</strong> 和 <strong>unsigned</strong> 可应用于字符型，<strong>long</strong> 可应用于双精度型。</p>
+
+<p>修饰符 <strong>signed</strong> 和 <strong>unsigned</strong> 也可以作为 <strong>long</strong> 或 <strong>short</strong> 修饰符的前缀。例如：<strong>unsigned long int</strong>。</p>
+
+<p>C++ 允许使用速记符号来声明<strong>无符号短整数</strong>或<strong>无符号长整数</strong>。您可以不写 int，只写单词 <strong>unsigned、short</strong> 或 <strong>long</strong>，<strong>int</strong> 是隐含的。例如，下面的两个语句都声明了无符号整型变量。</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="kt">unsigned</span> <span class="n">x</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>为了理解 C++ 解释有符号整数和无符号整数修饰符之间的差别，我们来运行一下下面这个短程序：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+<span class="cm">/* 
+ * 这个程序演示了有符号整数和无符号整数之间的差别
+*/</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="kt">short</span> <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>           <span class="c1">// 有符号短整数</span>
+   <span class="kt">short</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">j</span><span class="p">;</span>  <span class="c1">// 无符号短整数</span>
+ 
+   <span class="n">j</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">;</span>
+ 
+   <span class="n">i</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">j</span><span class="p">;</span>
+ 
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>当上面的程序运行时，会输出下列结果：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="o">-</span><span class="mi">15536</span> <span class="mi">50000</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>述结果中，无符号短整数 50,000 的位模式被解释为有符号短整数 -15,536。</p>
+
+<h2 id="c-中的类型限定符">C++ 中的类型限定符</h2>
+
+<p>类型限定符提供了变量的额外信息。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>限定符</th>
+      <th>含义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>const</td>
+      <td><strong>const</strong> 类型的对象在程序执行期间不能被修改改变。</td>
+    </tr>
+    <tr>
+      <td>volatile</td>
+      <td>修饰符 <strong>volatile</strong> 告诉编译器不需要优化volatile声明的变量，让程序可以直接从内存中读取变量。对于一般的变量编译器会对变量进行优化，将内存中的变量值放在寄存器中以加快读写效率。</td>
+    </tr>
+    <tr>
+      <td>restrict</td>
+      <td>由 <strong>restrict</strong> 修饰的指针是唯一一种访问它所指向的对象的方式。只有 C99 增加了新的类型限定符 restrict。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>下一篇：[]</p>
+
+<hr />
+
+<p>​			“Time after time have given me new courage to face life cheerfully, have been Kindness, <em>Beauty, and Truth.</em> “   —Albert Einstein</p>
+
+<hr />
+

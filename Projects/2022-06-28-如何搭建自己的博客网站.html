@@ -1,0 +1,245 @@
+<p>本文主要概述，如何搭建自己的博客网站，并关联到自定义域名上。如何使用该主题，因为该主题比较特殊，因此，中间搭建过程可能比较麻烦，踩了几个坑，因此，在这里做一篇文章记录一下。</p>
+
+<p>本文除了介绍有以下几个方面：</p>
+
+<ul>
+  <li>
+    <p><u>搭建username.github.io网站；</u></p>
+
+    <ul>
+      <li>快速刷新自定义域名和github.io的关联关系</li>
+    </ul>
+  </li>
+  <li><u>添加评论功能；</u></li>
+  <li><u>关联自定义域名；</u></li>
+</ul>
+
+<p>首先，创建自己的githubpages网站比较简单，所以在这里不做太多赘述，附上讲的比较好的链接：</p>
+
+<ul>
+  <li>github官方介绍：<a href="https://docs.github.com/cn/pages">GitHub Pages 文档 - GitHub Docs</a></li>
+  <li>跟我一样的风格：<a href="https://unrealdev.cn/posts/getting-started/">Getting Started</a></li>
+  <li>普通一般风格：<a href="https://www.bilibili.com/video/BV1Xh411b7wh?spm_id_from=333.880.my_history.page.click&amp;vd_source=a25291d34476f766787af070326a91f5">零基础-通过Github Pages搭建个人博客_bilibili</a></li>
+</ul>
+
+<p>之所以把该网站的风格单独列出来，是因为该风格是因为该博客的风格使用了插件，而github为了安全考虑，限制了我们使用插件去生成其他页面文件。因此我们可以使用githubActions去构建站点。</p>
+
+<p>简要概括整体步骤，先有一个整体的框架，如果想知道具体的可以先看上面的第二个和第三个链接。</p>
+
+<p>步骤：</p>
+
+<ul>
+  <li>
+    <p>环境安装（windows电脑）：<a href="https://jekyllrb.com/docs/installation/windows/">windows安装Ruby等必要环境</a>，Git安装；</p>
+  </li>
+  <li>
+    <p>创建仓库:username.github.io;</p>
+  </li>
+  <li>
+    <p>git clone 到本地；</p>
+  </li>
+  <li>
+    <p>下载主题源代码：<a href="https://github.com/cotes2020/jekyll-theme-chirpy/releases">Release地址</a>；</p>
+  </li>
+  <li>
+    <p>解压，并将目录里面的多个文件夹放到自己仓库的根目录下；</p>
+  </li>
+  <li>
+    <p>根目录下右键打开GitBash运行以下命令：</p>
+
+    <ul>
+      <li>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git add . 
+</pre></td></tr></tbody></table></code></pre></div>        </div>
+      </li>
+      <li>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git commit -m"SomeBlog"
+</pre></td></tr></tbody></table></code></pre></div>        </div>
+      </li>
+      <li>
+        <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">$</span><span class="w"> </span>git push origin main
+</pre></td></tr></tbody></table></code></pre></div>        </div>
+      </li>
+      <li>
+        <p>注意：这里的分支名应该是你的主分支名，所有的操作也应该是你远程端，默认分支的名称，有的是默认master的，如果搞不懂就学一下git如何提交到远程仓库，以及每个命令的含义，这里不做赘述；</p>
+      </li>
+      <li>
+        <p>运行以下命令：该命令会删除一些不必要的文件：</p>
+      </li>
+      <li>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>bash tools/init.sh
+</pre></td></tr></tbody></table></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>安装依赖项：</p>
+
+    <ul>
+      <li>
+        <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">$</span><span class="w"> </span>bundle
+</pre></td></tr></tbody></table></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>使用：</p>
+
+    <ul>
+      <li>配置：
+        <ul>
+          <li>修改如下根目录下_config.yml文件的变量，具体修改成什么值，文件中有注释参考：
+            <ul>
+              <li>url</li>
+              <li>avatar</li>
+              <li>timezone</li>
+              <li>lang</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>自定义风格
+        <ul>
+          <li>略，可不修改</li>
+        </ul>
+      </li>
+      <li>自定义静态资源
+        <ul>
+          <li>略，可不修改</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>本地运行：</p>
+
+    <ul>
+      <li>
+        <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">$</span>bundle <span class="nb">exec </span>jekyll s
+</pre></td></tr></tbody></table></code></pre></div>        </div>
+      </li>
+      <li>浏览器打开命令行上显示的地址，一般为：127.0.0.1:4000,查看是否正常运行，如果不行查找上述是否严格按照上述步骤实现；</li>
+    </ul>
+  </li>
+  <li>
+    <p>部署：</p>
+
+    <ul>
+      <li>
+        <p>配置GitHub Actions</p>
+
+        <ul>
+          <li>
+            <p>检查目标文件【.github/workflows/pages-deploy.yml】是否存在，如果没有则创建一个，并拷贝<a href="https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/.github/workflows/pages-deploy.yml.hook">SampleFile</a> 文件里的内容，注意检查branch的名称，需要跟自己的名称一致，该文件默认是master，其次需要将rubyversion更改为自己安装的ruby的version（上述的ruby安装选项已经告知如何查找ruby的ersion），因为安装的是dev版本的，所以，将它改为缩减版的版本即可，如我的：ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x64-mingw-ucrt]，就直接更改为3.1.2。</p>
+          </li>
+          <li>
+            <p>确保tools/deploy.sh文件存在，否则从<a href="https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/tools/deploy.sh">原仓库</a>上复制该文件；</p>
+          </li>
+          <li>
+            <p>如果你使用的<u>**本地电脑**</u>不是linux系统，运行以下命令：</p>
+
+            <ul>
+              <li>
+                <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ bundle lock --add-platform x86_64-linux
+</pre></td></tr></tbody></table></code></pre></div>                </div>
+              </li>
+              <li>
+                <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git add .
+</pre></td></tr></tbody></table></code></pre></div>                </div>
+              </li>
+              <li>
+                <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git commit -m"+some log"
+</pre></td></tr></tbody></table></code></pre></div>                </div>
+              </li>
+              <li>
+                <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ git push origin main
+</pre></td></tr></tbody></table></code></pre></div>                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>经过上述操作，登录到 username.github.io 仓库，去看提交以后的编译操作，看是否编译成功，编译成功以后，就可以尝试用：yourusername.github.io来进行登陆了；</p>
+          </li>
+          <li>
+            <p>注意：在做下面的步骤之前最好确认username.github.io 网址可以正常访问；</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>快速刷新：</p>
+        <ul>
+          <li>可以尝试使用google浏览器的访客功能来访问网址，应该不到一分钟就可以更新”username.github.io”和”自定义域名”之间的关联；</li>
+          <li>
+            <p>评论功能：</p>
+
+            <ul>
+              <li>
+                <p>因为我用的是giscus方式，因此就用giscus来做介绍；</p>
+              </li>
+              <li>
+                <p>到<a href="https://github.com/apps/giscus">giscus</a>将该app安装到自己的github.io仓库（当然你也可以不用github.io仓库，但是会影响到后续操作，这里只介绍github.io方式）；</p>
+              </li>
+              <li>
+                <p>打开github.io仓库的discussion功能，在项目的setting当中；</p>
+              </li>
+              <li>
+                <p>然后一步一步的按照<a href="https://github.com/apps/giscus">giscus</a>中【configuration】中提到的去做，需要选择的地方可以选择默认；</p>
+              </li>
+              <li>
+                <p>完成上述操作，可以得到repid，categoryid等参数，用于后续关联网站使用；</p>
+              </li>
+              <li>
+                <p>找到_config.yml文件中的 comments部分，将变量设置为上面生成的内容，active：后填写 giscus，没有引号，注意在配置剩余其他变量的时候，需要单引号包裹，即使是rep部分，注释使用的是”<username>/<rep>"，这里也是需要用单引号包裹，如：'CoderOldSix/CoderOldSix.github.io'；</rep></username></p>
+              </li>
+              <li>
+                <p>修改上述完成以后，利用git提交到远端库；</p>
+              </li>
+              <li>
+                <p>等待github编译完成，然后用访客方式打开自己的域名；</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>踩过的坑：</p>
+
+    <ul>
+      <li>下载官方Release版本，不然会出问题；</li>
+      <li>解压之后别忘了运行<code class="language-plaintext highlighter-rouge">bash tools/init.sh</code>；</li>
+      <li>如果你是本地的别忘了运行 <code class="language-plaintext highlighter-rouge">bundle lock --add-platform x86_64-linux</code>命令；</li>
+      <li>添加评论功能的时候，尖括号问题，categoryid获取问题；</li>
+    </ul>
+  </li>
+  <li>
+    <p>上述处理方式的优缺点：</p>
+
+    <ul>
+      <li>国内用户不好访问，因此头像图片等尽量放在国内服务器（如果你想用github的方式，图片还有更好的处理方式，这里不再赘述）；</li>
+      <li>有的浏览器不能打开夜间模式；</li>
+      <li>不带视频播放功能；</li>
+      <li>gif功能没做测试；</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Good Job！</p>
+
+<hr />
+
+<p>​			“Time after time have given me new courage to face life cheerfully, have been Kindness, <em>Beauty, and Truth.</em> “   —Albert Einstein</p>
+
+<hr />
+
